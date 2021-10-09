@@ -3,7 +3,7 @@ def array_search(A: list, N: int, x: int):
     to find the index of first x if any.
     If x is not in Ar, return -1"""
     for i in range(N):
-        if A[i] == x:
+        if A [i] == x:
             return i
     return -1
 
