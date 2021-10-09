@@ -11,7 +11,7 @@ def max2(x, y):
     return "equal"
 
 
-def test_max2():
+def test1_max2():
     x, y = 1, 2
     m = max2(x, y)
     if m == 2:
@@ -20,4 +20,15 @@ def test_max2():
         print("test1-fail")
 
 
-test_max2()
+def test2_max2():
+    x,y = 1,1
+    m = max2(x,y)
+    #TODO
+
+def test3_max2():
+    x,y=2,1
+    #TODO
+
+test1_max2()
+test2_max2()
+test3_max2()
