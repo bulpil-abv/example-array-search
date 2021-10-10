@@ -1,7 +1,7 @@
 def factorize_number(x: int):
     """
     Finds divisors of a number
-    :param x: number
+    :param x: positive whole number
     :return: A list of divisors
     """
     k = 0
@@ -22,6 +22,7 @@ def test1_factorize_number():
     else:
         print("test1-fail")
     print(B)
+
 
 def test2_factorize_number():
     x = 10
