@@ -22,5 +22,21 @@ def make_list_append(y):
     print(A)
 
 
+def make_list_expression():
+    """
+    List demo
+    Power 2 even numbers in list A.
+    """
+    A=[1,2,3,4,5,7,12,9,6]
+    B=[]
+    for x in A:
+        if x%2 == 0:
+            B.append(x**2)
+    print(B)
+
+    B=[x**2 for x in A if x%2==0]
+    print(B)
+
 make_list_comprehension(4)
 make_list_append(4)
+make_list_expression()
