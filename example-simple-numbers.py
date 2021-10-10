@@ -1,7 +1,8 @@
 def is_simple_number(x: int):
     """
-    :parameter x is positive integer.
     Check if x is a simple number.
+    :parameter x is positive integer.
+    :return bool
     """
     divisor = 2
     while divisor < x:
