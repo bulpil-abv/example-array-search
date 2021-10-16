@@ -36,3 +36,15 @@ print("End")
 
 #my_rectangle = gr.Rectangle(gr.Point(2, 4), gr.Point(4, 8))
 #my_rectangle.draw(window)
+
+# Factorial
+# f(0)=1
+# f(n)=f(n-1)*n
+
+def factorial(n):
+    assert n>=0
+    if n == 0:
+        return 1
+    return   factorial(n-1)*n
+
+print(factorial(3))
