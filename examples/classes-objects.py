@@ -8,6 +8,13 @@ class Goat:
         print(self.age)
 
 
+class Student:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        print(name, "+")
+
+
 a = Goat()
 print(type(a))
 a.name = "Jolly"
