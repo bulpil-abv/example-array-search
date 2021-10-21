@@ -24,5 +24,8 @@ b = Goat()
 print(type(b))
 b.name = "Nelly"
 b.age = 3
+b.leg=5
 
 a.show()
+print(b.leg)
+
