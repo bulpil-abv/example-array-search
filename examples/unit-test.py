@@ -1,15 +1,5 @@
 import unittest
-
-
-def fib(n):
-    """
-    Calculates Fibonacci number.
-    Throws TypeError exception if called with not integer.
-    Throws ValueError exception if called with a negative or larger than contracted number.
-    :param n: integer from 0 to 9999
-    :return: integer from 0 to ...
-    """
-    pass
+from fibonacci import fib
 
 
 class TestFibonacci(unittest.TestCase):
@@ -19,13 +9,21 @@ class TestFibonacci(unittest.TestCase):
             self.assertEqual(fib(param), result)
 
     def test_stress(self):
-        pass
+        self.assertEqual(fib(9999), fib(9998) + fib(9997))
+        with self.assertRaises(ValueError):
+            fib(10000)
 
     def test_negative(self):
-        pass
+        with self.assertRaises(ValueError):
+            fib(-1)
+        with self.assertRaises(ValueError):
+            fib(-100)
 
     def test_wrong_param_type(self):
-        pass
+        with self.assertRaises(TypeError):
+            fib("Hello")
+        with self.assertRaises(TypeError):
+            fib(5.5)
 
 
 class TestStringMethods(unittest.TestCase):
