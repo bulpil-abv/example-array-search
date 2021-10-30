@@ -1,4 +1,4 @@
-def merge_sort(A: list):
+def merge_sort(A):
     """
     Recursively breaking down problem A into
     sub problems until solved directly.
