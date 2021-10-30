@@ -17,6 +17,7 @@ def merge_sort(A: list):
     C = merge(L, R)
     for i in range(len(A)):
         A[i] = C[i]
+    return A
 
 
 def merge(A: list, B: list):
@@ -49,9 +50,12 @@ def merge(A: list, B: list):
     return C
 
 def test_merge_sort():
-    A = [90, 3, 3, 5, 7, 13]
-    B = [3, 3, 5, 7, 13, 90]
+    A = [90, 3, 3, 5, 7, 13,0]
+    B = [0,3, 3, 5, 7, 13, 90]
     C = merge_sort(A)
+    print("A test-input",A)
+    print("B test-sorted",B)
+    print("C mergesort-sorted",C)
     print("Test Ok" if B == C else "Test Fail")
 
 
