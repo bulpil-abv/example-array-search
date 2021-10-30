@@ -1,4 +1,4 @@
-def merge_sort(A):
+def merge_sort(A: list):
     """
     Recursively breaking down problem A into
     sub problems until solved directly.
@@ -19,5 +19,41 @@ def merge_sort(A):
         A[i] = C[i]
 
 
-def merge(A, B):
-    pass
+def merge(A: list, B: list):
+    """
+    Merges sorted lists.
+    Returns a sorted list.
+    :param A:
+    :param B:
+    :return:
+    """
+    C = [0] * (len(A) + len(B))
+    i = k = n = 0
+    while i < len(A) and k < len(B):
+        if A[i] <= B[k]:
+            C[n] = A[i]
+            i += 1
+            n += 1
+        else:
+            C[n]=B[k]
+            k+=1
+            n+=1
+    while i<len(A):
+        C[n]=A[i]
+        i+=1
+        n+=1
+    while k<len(B):
+        C[n]=B[k]
+        k+=1
+        n+=1
+    return C
+
+def test_merge_sort():
+    A = [90, 3, 3, 5, 7, 13]
+    B = [3, 3, 5, 7, 13, 90]
+    C = merge_sort(A)
+    print("Test Ok" if B == C else "Test Fail")
+
+
+if __name__ == "__main__":
+    test_merge_sort()
