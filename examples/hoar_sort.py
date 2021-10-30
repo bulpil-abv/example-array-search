@@ -23,12 +23,13 @@ def hoar_sort(A):
     for x in L + M + R:
         A[k] = x
         k += 1
-
+    return A
 
 def test_hoar_sort():
     A = [5, 7, 3, -1, 0, 33, 33, 5]
     B = [-1, 0, 3, 5, 5, 7, 33, 33]
     C = hoar_sort(A)
+    print(C)
     print("Test OK" if B == C else "Test fail")
 
 
