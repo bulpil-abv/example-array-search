@@ -15,6 +15,8 @@ def merge_sort(A):
     merge_sort(L)
     merge_sort(R)
     C = merge(L, R)
+    for i in range(len(A)):
+        A[i] = C[i]
 
 
 def merge(A, B):
