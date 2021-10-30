@@ -8,8 +8,9 @@ def check_sorted(A: list, ascending=True) -> bool:
     :return: true or false
     """
     flag = True
+    s = 2*int(ascending)-1
     for i in range(0, len(A)-1):
-        if A[i] > A[i + 1]:
+        if s*A[i] > s*A[i + 1]:
             flag = False
             break
     return flag
@@ -18,7 +19,7 @@ def check_sorted(A: list, ascending=True) -> bool:
 class TestCheckSorted(unittest.TestCase):
     def test_check_sorted(self):
         expected = True
-        actual = check_sorted([1, 2, 3, 4, 5, 6])
+        actual = check_sorted([1, 2, 3, 4, 4, 6])
         self.assertEqual(actual, expected)
 
 
