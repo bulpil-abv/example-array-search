@@ -8,9 +8,9 @@ def check_sorted(A: list, ascending=True) -> bool:
     :return: true or false
     """
     flag = True
-    s = 2*int(ascending)-1
-    for i in range(0, len(A)-1):
-        if s*A[i] > s*A[i + 1]:
+    s = 2 * int(ascending) - 1
+    for i in range(0, len(A) - 1):
+        if s * A[i] > s * A[i + 1]:
             flag = False
             break
     return flag
@@ -22,11 +22,11 @@ class TestCheckSorted(unittest.TestCase):
         actual = check_sorted([1, 2, 3, 4, 4, 6])
         self.assertEqual(actual, expected)
 
-
     def test_negative_sorted(self):
         expected = False
-        actual = check_sorted([1,-1,2,3,4,5,6,7])
+        actual = check_sorted([1, -1, 2, 3, 4, 5, 6, 7])
         self.assertFalse(actual)
+
 
 if __name__ == "__main__":
     unittest.main()
