@@ -23,5 +23,10 @@ class TestCheckSorted(unittest.TestCase):
         self.assertEqual(actual, expected)
 
 
+    def test_negative_sorted(self):
+        expected = False
+        actual = check_sorted([1,-1,2,3,4,5,6,7])
+        self.assertFalse(actual)
+
 if __name__ == "__main__":
     unittest.main()
