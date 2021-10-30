@@ -1,6 +1,8 @@
 def is_simple_number(x: int):
     """
-    Check if x is a simple number.
+    A prime number (or a prime) is a natural number
+    greater than 1 that is not a product of two smaller natural numbers.
+    Check if x is a prime number.
     :parameter x is positive integer.
     :return bool
     """
@@ -12,7 +14,7 @@ def is_simple_number(x: int):
     return True
 
 
-def test_is_simple_number():
+def test_is_prime_number():
     A = [2, 3, 5, 7, 11, 17, 19]
     for i in range(7):
         if not is_simple_number(A[i]):
@@ -21,4 +23,5 @@ def test_is_simple_number():
     print("test-ok")
 
 
-test_is_simple_number()
+if __name__ == "__main__":
+    test_is_prime_number()
