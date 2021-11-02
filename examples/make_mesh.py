@@ -1,42 +1,15 @@
 # make a mesh
 
-# two sections with 15 vertices each
-section0 = [
-    (0.0,0.0,5.0),
-    (0.5,0.0,5.0),
-    (1.0,0.0,4.5),
-    (1.5,0.0,4.0),
-    (2.0,0.0,3.0),
-    (2.0,0.0,2.0),
-    (2.0,0.0,1.0),
-    (2.0,0.0,0.0),
-    (2.0,0.0,-1.0),
-    (2.0,0.0,-2.0),
-    (2.0,0.0,-3.0),
-    (1.5,0.0,-4.0),
-    (1.0,0.0,-4.5),
-    (0.5,0.0,-5.0),
-    (0.0,0.0,-5.0)]
+def make_faces(section0: list, section1: list) -> list:
+    """
+    Make faces from the vertices in the sections.
+    :param section0: list of consecutive vertices
+    :param section1: list of consecutive vertices
+    :return: faces wound counterclockwise
+    """
 
-section1 = [
-    (0.0,1.0,5.0),
-    (0.5,1.0,5.0),
-    (1.0,1.0,4.5),
-    (1.5,1.0,4.0),
-    (2.0,1.0,3.0),
-    (2.0,1.0,2.0),
-    (2.0,1.0,1.0),
-    (2.0,1.0,0.0),
-    (2.0,1.0,-1.0),
-    (2.0,1.0,-2.0),
-    (2.0,1.0,-3.0),
-    (1.5,1.0,-4.0),
-    (1.0,1.0,-4.5),
-    (0.5,1.0,-5.0),
-    (0.0,1.0,-5.0)]
-
-# make faces from the vertices in the sections
-faces = []
-I = len(section1)
-for i in range(0,I-1):
-    faces[i] = (section0[i], section0[i+1],section1[I+1],section1[I])
+    I = len(section1)
+    faces = [(0, 0, 0)] * (I - 1)
+    for i in range(0, I - 1):
+        faces[i] = (i, i + 1, i + I + 1, i + I)
+    return faces
