@@ -10,7 +10,7 @@ with open(path) as dig_file:
     for i in range(4):
         header.append(lines[i].strip())
 
-    # collect the data
+    # collect the data, split is 3 spaces
     dataset = []
     for i in range(4, len(lines)):
         dataset.append(lines[i].strip().split("   "))
