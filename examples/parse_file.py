@@ -1,4 +1,5 @@
-# read digitized data
+# read digitized data from
+# GetData graph digitizer
 
 
 path = "C:/Users/Smith/Desktop/output from digitizer/frame_01 70 data pts.txt"
