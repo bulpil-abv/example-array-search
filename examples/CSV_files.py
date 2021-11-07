@@ -7,4 +7,3 @@ with open(path) as csv_file:
     for line in csv_reader:
         print(line)
 
-
