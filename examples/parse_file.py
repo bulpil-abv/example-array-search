@@ -24,3 +24,6 @@ with open(path) as dig_file:
 
     print(x)
     print(y)
+
+# TODO modify raw file to include z coordinate and parse it in this script e.g. line[4] = z etc.
+# TODO save the (x,y,z) into file to be read by the face mesh script
