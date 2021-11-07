@@ -6,9 +6,17 @@ with open(path) as dig_file:
     lines = [line for line in dig_file]
 
     # collect the header
-    header= []
+    header = []
     for i in range(4):
         header.append(lines[i].strip())
-    print(header)
 
+    # collect the data
+    dataset = []
+    x = []
+    y = []
+    for i in range(4, len(lines)):
+        dataset.append(lines[i].strip().split("   "))
+
+    for i in range(len(dataset)):
+        print(dataset[i])
 
