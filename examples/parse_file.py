@@ -12,11 +12,14 @@ with open(path) as dig_file:
 
     # collect the data
     dataset = []
-    x = []
-    y = []
     for i in range(4, len(lines)):
         dataset.append(lines[i].strip().split("   "))
 
+    x = [0.0] * len(dataset)
+    y = [0.0] * len(dataset)
     for i in range(len(dataset)):
-        print(dataset[i])
+        row = dataset[i]
+        x[i],y[i] = row[0], row[1]
 
+    print(x)
+    print(y)
