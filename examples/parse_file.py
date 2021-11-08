@@ -3,27 +3,33 @@
 
 
 path = "D:\\blender_scripts\\blender_repo\output from digitizer\sec_01 70 data pts.txt"
-with open(path) as dig_file:
-    lines = [line for line in dig_file]
+def parse_file(path:str) -> list:
+    """
+    Parse a file with "   " - three spaces separator
+    :param path: the digitized data
+    :return: xyz[(x, y, z),....]
+    """
+    with open(path) as dig_file:
+        lines = [line for line in dig_file]
 
-    # collect the header - 3 lines
-    header = []
-    for i in range(3):
-        header.append(lines[i].strip())
+        # collect the header - 3 lines
+        header = []
 
-    # collect the z coordinate of the section
-    z = float(lines[3].strip().split("   ")[1])
+        for i in range(3):
+            header.append(lines[i].strip())
 
-    # collect the data, split is 3 spaces
-    dataset = []
-    for i in range(4, len(lines)):
-        dataset.append(lines[i].strip().split("   "))
+        # collect the z coordinate of the section
+        z = float(lines[3].strip().split("   ")[1])
 
-    xyz = [0.0, 0.0, 0.0] * len(dataset)
+        # collect the data, split is 3 spaces
+        dataset = []
+        for i in range(4, len(lines)):
+            dataset.append(lines[i].strip().split("   "))
 
-    for i in range(len(dataset)):
-        row = dataset[i]
-        xyz[i] = float(row[0]), float(row[1]), z
+        xyz = [0.0, 0.0, 0.0] * len(dataset)
 
-    print(xyz)
-# TODO save the (x,y,z) into file to be read by the face mesh script
+        for i in range(len(dataset)):
+            row = dataset[i]
+            xyz[i] = float(row[0]), float(row[1]), z
+
+    return xyz
