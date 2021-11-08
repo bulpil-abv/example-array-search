@@ -56,7 +56,8 @@ class TestMakeFaces(unittest.TestCase):
             (12, 13, 28, 27),
             (13, 14, 29, 28)]
 
-        actual = make_faces(section0, section1)
+        n = len(section0)
+        actual = make_faces(n)
 
         self.assertEqual(actual, expected)
 
