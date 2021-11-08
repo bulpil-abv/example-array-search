@@ -30,6 +30,6 @@ def parse_file(path:str) -> list:
 
         for i in range(len(dataset)):
             row = dataset[i]
-            xyz[i] = (float(row[0]), float(row[1]), z)
+            xyz[i] = [float(row[0]), float(row[1]), z]
 
     return xyz
