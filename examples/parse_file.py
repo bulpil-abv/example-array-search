@@ -2,7 +2,7 @@
 # GetData graph digitizer
 
 
-path = "D:\\blender_scripts\\blender_repo\output from digitizer\sec_01 70 data pts.txt"
+# path = "D:\\blender_scripts\\blender_repo\output from digitizer\sec_01 70 data pts.txt"
 def parse_file(path:str) -> list:
     """
     Parse a file with "   " - three spaces separator
