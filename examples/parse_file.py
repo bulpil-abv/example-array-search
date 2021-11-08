@@ -2,7 +2,7 @@
 # GetData graph digitizer
 
 
-path = "C:/Users/Smith/Desktop/output from digitizer/frame_01 70 data pts.txt"
+path = "D:\\blender_scripts\\blender_repo\output from digitizer\sec_01 70 data pts.txt"
 with open(path) as dig_file:
     lines = [line for line in dig_file]
 
@@ -12,21 +12,18 @@ with open(path) as dig_file:
         header.append(lines[i].strip())
 
     # collect the z coordinate of the section
-    z = lines[4]
+    z = float(lines[3].strip().split("   ")[1])
 
     # collect the data, split is 3 spaces
     dataset = []
     for i in range(4, len(lines)):
         dataset.append(lines[i].strip().split("   "))
 
-    x = [0.0] * len(dataset)
-    y = [0.0] * len(dataset)
+    xyz = [0.0, 0.0, 0.0] * len(dataset)
+
     for i in range(len(dataset)):
         row = dataset[i]
-        x[i],y[i] = row[0], row[1]
+        xyz[i] = float(row[0]), float(row[1]), z
 
-    print(x)
-    print(y)
-
-# TODO modify raw file to include z coordinate and parse it in this script e.g. line[4] = z etc.
+    print(xyz)
 # TODO save the (x,y,z) into file to be read by the face mesh script
