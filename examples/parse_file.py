@@ -27,7 +27,7 @@ def parse_file(path:str) -> list:
             dataset.append(lines[i].strip().split("   "))
         print(dataset)
         print(len(dataset))
-        xyz = [0.0, 0.0, 0.0] * len(dataset)
+        xyz = [0] * len(dataset)
 
         for i in range(len(dataset)):
             row = dataset[i]
