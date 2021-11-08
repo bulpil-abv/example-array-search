@@ -6,10 +6,13 @@ path = "C:/Users/Smith/Desktop/output from digitizer/frame_01 70 data pts.txt"
 with open(path) as dig_file:
     lines = [line for line in dig_file]
 
-    # collect the header
+    # collect the header - 3 lines
     header = []
-    for i in range(4):
+    for i in range(3):
         header.append(lines[i].strip())
+
+    # collect the z coordinate of the section
+    z = lines[4]
 
     # collect the data, split is 3 spaces
     dataset = []
