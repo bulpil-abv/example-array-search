@@ -25,12 +25,11 @@ def parse_file(path:str) -> list:
         dataset = []
         for i in range(4, len(lines)):
             dataset.append(lines[i].strip().split("   "))
-        print(dataset)
-        print(len(dataset))
+
         xyz = [0] * len(dataset)
 
         for i in range(len(dataset)):
             row = dataset[i]
             xyz[i] = (float(row[0]), float(row[1]), z)
-        print(xyz)
+
     return xyz
