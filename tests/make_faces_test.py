@@ -4,7 +4,7 @@ from make_faces import *
 
 
 class TestMakeFaces(unittest.TestCase):
-    # two sections with 15 vertices each
+    # two sections with n=15 vertices each
 
     def test_make_faces_returns_list(self):
         section0 = [
@@ -57,7 +57,7 @@ class TestMakeFaces(unittest.TestCase):
             (13, 14, 29, 28)]
 
         n = len(section0)
-        actual = make_faces(n)
+        actual = make_faces(n,2)
 
         self.assertEqual(actual, expected)
 

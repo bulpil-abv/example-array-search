@@ -1,6 +1,6 @@
 # make a mesh
 
-def make_faces(n_vertices:int) -> list:
+def make_faces(n_vertices:int, n_sections:int) -> list:
 # TODO Make the function to work with more than two sections
     """
     Make faces from the vertices in two sections.
