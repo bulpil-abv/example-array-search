@@ -1,6 +1,6 @@
 import unittest
 
-from make_mesh import *
+from make_faces import *
 
 
 class TestMakeFaces(unittest.TestCase):
