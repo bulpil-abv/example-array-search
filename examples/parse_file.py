@@ -2,28 +2,34 @@
 # GetData graph digitizer
 
 
-path = "C:/Users/Smith/Desktop/output from digitizer/frame_01 70 data pts.txt"
-with open(path) as dig_file:
-    lines = [line for line in dig_file]
+# path = "D:\\blender_scripts\\blender_repo\output from digitizer\sec_01 70 data pts.txt"
+def parse_file(path:str) -> list:
+    """
+    Parse a file with "   " - three spaces separator
+    :param path: the digitized data
+    :return: xyz[(x, y, z),....]
+    """
+    with open(path) as dig_file:
+        lines = [line for line in dig_file]
 
-    # collect the header
-    header = []
-    for i in range(4):
-        header.append(lines[i].strip())
+        # collect the header - 3 lines
+        header = []
 
-    # collect the data, split is 3 spaces
-    dataset = []
-    for i in range(4, len(lines)):
-        dataset.append(lines[i].strip().split("   "))
+        for i in range(3):
+            header.append(lines[i].strip())
 
-    x = [0.0] * len(dataset)
-    y = [0.0] * len(dataset)
-    for i in range(len(dataset)):
-        row = dataset[i]
-        x[i],y[i] = row[0], row[1]
+        # collect the z coordinate of the section
+        z = float(lines[3].strip().split("   ")[1])
 
-    print(x)
-    print(y)
+        # collect the data, split is 3 spaces
+        dataset = []
+        for i in range(4, len(lines)):
+            dataset.append(lines[i].strip().split("   "))
 
-# TODO modify raw file to include z coordinate and parse it in this script e.g. line[4] = z etc.
-# TODO save the (x,y,z) into file to be read by the face mesh script
+        xyz = [0] * len(dataset)
+
+        for i in range(len(dataset)):
+            row = dataset[i]
+            xyz[i] = [float(row[0]), float(row[1]), z]
+
+    return xyz
