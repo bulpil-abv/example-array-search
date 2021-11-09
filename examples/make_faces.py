@@ -4,6 +4,7 @@ def make_faces(n_vertices: int, n_sections: int) -> list:
 
     """
     Make faces from the vertices in two sections.
+    :param n_sections number of sections
     :param n_vertices number of vertices in a single section.
     :return: faces with indices wound counterclockwise
     """
