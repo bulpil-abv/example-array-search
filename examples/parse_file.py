@@ -2,34 +2,39 @@
 # GetData graph digitizer
 
 
-# path = "D:\\blender_scripts\\blender_repo\output from digitizer\sec_01 70 data pts.txt"
-def parse_file(path:str) -> list:
+
+
+def parse_file(file_paths:list) -> list:
     """
     Parse a file with "   " - three spaces separator
-    :param path: the digitized data
-    :return: xyz[(x, y, z),....]
+    :param file_paths: paths to the files with the digitized data
+    :return: list_vertices[(x, y, z),....]
     """
-    with open(path) as dig_file:
-        lines = [line for line in dig_file]
+    list_vertices = []
+    for path in file_paths:
+        with open(path) as dig_file:
+            lines = [line for line in dig_file]
 
-        # collect the header - 3 lines
-        header = []
+            # collect the header - 3 lines
+            header = []
 
-        for i in range(3):
-            header.append(lines[i].strip())
+            for i in range(3):
+                header.append(lines[i].strip())
 
-        # collect the z coordinate of the section
-        z = float(lines[3].strip().split("   ")[1])
+            # collect the z coordinate of the section
+            z = float(lines[3].strip().split("   ")[1])
 
-        # collect the data, split is 3 spaces
-        dataset = []
-        for i in range(4, len(lines)):
-            dataset.append(lines[i].strip().split("   "))
+            # collect the data, split is 3 spaces
+            dataset = []
+            for i in range(4, len(lines)):
+                dataset.append(lines[i].strip().split("   "))
 
-        xyz = [0] * len(dataset)
+            xyz = [0] * len(dataset)
 
-        for i in range(len(dataset)):
-            row = dataset[i]
-            xyz[i] = [float(row[0]), float(row[1]), z]
+            for i in range(len(dataset)):
+                row = dataset[i]
+                xyz[i] = [float(row[0]), float(row[1]), z]
 
-    return xyz
+        list_vertices += xyz
+
+    return list_vertices
